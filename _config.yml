@@ -1,11 +1,11 @@
-title: Dostępność
+title: Dostępność!
 description: blog o dostępności
 author: Mikołaj Rotnicki
 theme: minima
 
 minima:
   date_format: "%Y-%m-%d"
-  skin: auto
+  
   social_links:
     github: rotnicki
     twitter: rotnicki

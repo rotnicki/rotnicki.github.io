@@ -1,7 +1,3 @@
 ---
-layout: home
+layout: default
 ---
-
-# Moja strona
-
-Raz dwa trzy

@@ -4,6 +4,6 @@ author: Mikołaj Rotnicki
 theme: minima
 
 minima:
-  skin: dark
+skin: dark
   
-date_format: "%Y-%b-%-d"
+date_format: "%Y-%m-%d"

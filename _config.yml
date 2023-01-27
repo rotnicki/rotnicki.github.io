@@ -7,7 +7,7 @@ minima:
   date_format: "%Y-%m-%d"
   
   social_links:
-    github: rotnicki
-    twitter: rotnicki
+    - twitter: rotnicki
+    - facebook: rotnicki
 
 show_excerpts: true

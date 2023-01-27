@@ -5,4 +5,5 @@ theme: minima
 
 minima:
   skin: dark
-  date_format: "%A-%B-%-d-%Y"
+  
+date_format: "%Y-%b-%-d"

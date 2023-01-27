@@ -1,7 +1,7 @@
 title: Dostępność
 description: blog o dostępności
 author: Mikołaj Rotnicki
-# theme: minima
+theme: minima
 remote_theme: mmistakes/minimal-mistakes
 
 # minima:

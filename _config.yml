@@ -2,14 +2,14 @@ title: Dostępność
 description: blog o dostępności
 author: Mikołaj Rotnicki
 theme: minima
-remote_theme: mmistakes/minimal-mistakes
 
-# minima:
-#  date_format: "%Y-%m-%d"
+minima:
+  date_format: "%Y-%m-%d"
+  skin: Dark
   
 #  social_links:
 #    twitter: jekyllrb
 #    github:  jekyll
 #    rss: rss
 
-# show_excerpts: true
+show_excerpts: true

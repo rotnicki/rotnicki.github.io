@@ -1,6 +1,8 @@
-title: Dostępność
+title: Dostępność Cyfrowa
 description: blog o dostępności
-author: Mikołaj Rotnicki
+author:
+  name: Mikołaj Rotnicki
+  email: rotnicki@example.com
 theme: minima
 
 minima:

@@ -3,4 +3,4 @@ layout: home
 list_title: Najnowsze wpisy
 ---
 
-Witaj na moim blogu! Rozgość się
+# Witaj na moim blogu!

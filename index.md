@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 ---
 
-Witaj na moim blogu!
+Witaj na moim blogu! Rozgość się

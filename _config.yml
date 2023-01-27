@@ -5,8 +5,8 @@ theme: minima
 language: pl
 
 minima:
-  date_format: "%Y-%m-%d"
   skin: Dark
+  date_format: "%Y-%m-%d"
   
 #  social_links:
 #    twitter: jekyllrb

@@ -5,3 +5,5 @@ theme: minima
 
 minima:
   date_format: "%Y-%m-%d"
+  social_links:
+    - { platform: instagram,      user_url: "https://www.instagram.com/rotnicki" }

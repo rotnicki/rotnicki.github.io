@@ -2,10 +2,10 @@ title: Dostępność Cyfrowa to jest to!
 description: blog o dostępności
 author: Mikołaj Rotnicki
 theme: minima
-language: pl
+lang: pl
 
 minima:
-  skin: Dark
+  skin: auto
   date_format: "%Y-%m-%d"
   
 #  social_links:

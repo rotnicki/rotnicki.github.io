@@ -3,7 +3,7 @@ description: blog o dostępności
 author:
   name: Mikołaj Rotnicki
   email: rotnicki@example.com
-theme: minima
+theme: minimal
 
 minima:
   date_format: "%Y-%m-%d"

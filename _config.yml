@@ -15,5 +15,6 @@ minima:
 
 header_pages:
   - about.md
+    - contact.md
 
 show_excerpts: true

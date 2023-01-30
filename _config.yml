@@ -7,13 +7,17 @@ lang: pl
 minima:
   skin: dark
   date_format: "%Y-%m-%d"
-  
   social_links:
     twitter: rotnicki
     github:  rotnicki
     facebook: rotnicki
     instagram: rotnicki
     rss: rss
+
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
 
 header_pages:
   - about.md

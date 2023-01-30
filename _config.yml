@@ -1,17 +1,19 @@
 title: Dostępność
 description: blog o dostępności
 author: Mikołaj Rotnicki
-theme: minima
+remote_theme: jekyll/minima
 lang: pl
 
 minima:
-  skin: auto
+  skin: dark
   date_format: "%Y-%m-%d"
   
-#  social_links:
-#    twitter: jekyllrb
-#    github:  jekyll
-#    rss: rss
+  social_links:
+    twitter: rotnicki
+    github:  rotnicki
+    facebook: rotnicki
+    instagram: rotnicki
+    rss: rss
 
 header_pages:
   - about.md

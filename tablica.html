@@ -1,2 +1,93 @@
-Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2026-02-11 23:26:12
-Current User's Login: rotnicki
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablica Przystankowa - Os. Rzeczypospolitej</title>
+    <style>
+        /* Tło jak na prawdziwej tablicy */
+        body {
+            background-color: #000;
+            color: #ff9d00; /* Klasyczny bursztynowy kolor LED */
+            font-family: 'Courier New', Courier, monospace; /* Czcionka techniczna */
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Nagłówek tablicy */
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .stop-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Styl listy odjazdów */
+        .departure-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 2rem; /* Duże, czytelne litery */
+            margin-bottom: 15px;
+            border-bottom: 1px solid #222;
+        }
+
+        .line-number {
+            color: #fff; /* Numer linii na biało dla kontrastu */
+            font-weight: bold;
+            width: 20%;
+        }
+
+        .destination {
+            width: 55%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .time {
+            width: 25%;
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* Efekt świecenia liter (Glow) */
+        .glow {
+            text-shadow: 0 0 5px #ff9d00, 0 0 10px #ff9d00;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="stop-name">Os. Rzeczypospolitej</div>
+    </header>
+
+    <main aria-live="polite">
+        <div class="departure-row glow">
+            <span class="line-number">12</span>
+            <span class="destination">Starołęka</span>
+            <span class="time">2 min</span>
+        </div>
+
+        <div class="departure-row glow">
+            <span class="line-number">7</span>
+            <span class="destination">Ogrody</span>
+            <span class="time">5 min</span>
+        </div>
+
+        <div class="departure-row glow">
+            <span class="line-number">156</span>
+            <span class="destination">Szarych Szeregów</span>
+            <span class="time">12:45</span>
+        </div>
+    </main>
+
+</body>
+</html>

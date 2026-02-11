@@ -5,89 +5,130 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablica Przystankowa - Os. Rzeczypospolitej</title>
     <style>
-        /* Tło jak na prawdziwej tablicy */
+        /* Stylistyka Tablicy ITS */
         body {
             background-color: #000;
-            color: #ff9d00; /* Klasyczny bursztynowy kolor LED */
-            font-family: 'Courier New', Courier, monospace; /* Czcionka techniczna */
+            color: #ff9d00; /* Bursztynowy LED */
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
+            line-height: 1.4;
         }
 
-        /* Nagłówek tablicy */
         header {
             border-bottom: 2px solid #333;
+            margin-bottom: 20px;
             padding-bottom: 10px;
-            margin-bottom: 10px;
         }
 
         .stop-name {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* Styl listy odjazdów */
+        /* Kontener na odjazdy */
+        .departures-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Wiersz odjazdu - Fokus na całości */
         .departure-row {
             display: flex;
             justify-content: space-between;
-            font-size: 2rem; /* Duże, czytelne litery */
-            margin-bottom: 15px;
+            align-items: center;
+            font-size: 2.2rem;
+            padding: 10px 5px;
             border-bottom: 1px solid #222;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Stylizacja fokusowania dla VoiceOver */
+        .departure-row:focus {
+            background-color: #1a1a1a;
+            box-shadow: 0 0 10px #ff9d00;
         }
 
         .line-number {
-            color: #fff; /* Numer linii na biało dla kontrastu */
+            color: #fff;
             font-weight: bold;
-            width: 20%;
+            min-width: 70px;
         }
 
         .destination {
-            width: 55%;
+            flex-grow: 1;
+            padding-left: 15px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .time {
-            width: 25%;
+            min-width: 100px;
             text-align: right;
             font-weight: bold;
         }
 
-        /* Efekt świecenia liter (Glow) */
+        /* Efekt świecenia liter */
         .glow {
-            text-shadow: 0 0 5px #ff9d00, 0 0 10px #ff9d00;
+            text-shadow: 0 0 8px #ff9d00;
+        }
+
+        /* Ukrycie elementów przed czytnikiem, by czytał tylko aria-label */
+        [aria-hidden="true"] {
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="stop-name">Os. Rzeczypospolitej</div>
+        <h1 class="stop-name" aria-label="Przystanek Osiedle Rzeczypospolitej">Os. Rzeczypospolitej</h1>
     </header>
 
-    <main aria-live="polite">
-        <div class="departure-row glow">
-            <span class="line-number">12</span>
-            <span class="destination">Starołęka</span>
-            <span class="time">2 min</span>
+    <main class="departures-list" role="list" aria-label="Aktualne odjazdy">
+        
+        <div class="departure-row glow" 
+             role="listitem" 
+             tabindex="0" 
+             aria-label="Linia 12, kierunek Starołęka, odjazd za 2 minuty">
+            <span class="line-number" aria-hidden="true">12</span>
+            <span class="destination" aria-hidden="true">Starołęka</span>
+            <span class="time" aria-hidden="true">2 min</span>
         </div>
 
-        <div class="departure-row glow">
-            <span class="line-number">7</span>
-            <span class="destination">Ogrody</span>
-            <span class="time">5 min</span>
+        <div class="departure-row glow" 
+             role="listitem" 
+             tabindex="0" 
+             aria-label="Linia 7, kierunek Ogrody, odjazd za 5 minut">
+            <span class="line-number" aria-hidden="true">7</span>
+            <span class="destination" aria-hidden="true">Ogrody</span>
+            <span class="time" aria-hidden="true">5 min</span>
         </div>
 
-        <div class="departure-row glow">
-            <span class="line-number">156</span>
-            <span class="destination">Szarych Szeregów</span>
-            <span class="time">12:45</span>
+        <div class="departure-row glow" 
+             role="listitem" 
+             tabindex="0" 
+             aria-label="Linia 156, kierunek Szarych Szeregów, odjazd o godzinie 12:45">
+            <span class="line-number" aria-hidden="true">156</span>
+            <span class="destination" aria-hidden="true">Szarych Szeregów</span>
+            <span class="time" aria-hidden="true">12:45</span>
         </div>
+
     </main>
+
+    <script>
+        // Funkcja ułatwiająca obsługę klawiatury/fokusu
+        document.querySelectorAll('.departure-row').forEach(row => {
+            row.addEventListener('click', () => {
+                row.focus();
+            });
+        });
+    </script>
 
 </body>
 </html>

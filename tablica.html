@@ -1,32 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clock and Departures</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tablica Przystankowa - Os. Rzeczypospolitej</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .clock { font-size: 24px; margin-bottom: 20px; }
-        .departures { font-size: 20px; }
+        /* Stylistyka Tablicy ITS */
+        body {
+            background-color: #000;
+            color: #ff9d00;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 10px;
+            overflow-x: hidden; /* Zapobiega przewijaniu na boki */
+        }
+
+        header {
+            border-bottom: 2px solid #333;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+
+        .stop-name {
+            font-size: 5vw; /* Skaluje się z szerokością ekranu */
+            font-weight: bold;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .departures-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        /* Wiersz odjazdu - Elastyczny układ */
+        .departure-row {
+            display: flex;
+            align-items: center;
+            /* Dynamiczna czcionka: min 18px, dopasowana do szerokości */
+            font-size: 6.5vw; 
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            outline: none;
+            width: 100%;
+        }
+
+        .departure-row:focus {
+            background-color: #1a1a1a;
+        }
+
+        .line-number {
+            color: #fff;
+            font-weight: bold;
+            width: 15%; /* Stały procent szerokości */
+            flex-shrink: 0;
+        }
+
+        .destination {
+            width: 60%;
+            padding-left: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; /* Przycina zbyt długie nazwy z wielokropkiem */
+        }
+
+        .time {
+            width: 25%;
+            text-align: right;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .glow {
+            text-shadow: 0 0 5px #ff9d00;
+        }
+
+        /* Schowanie dla VoiceOver elementów wewnętrznych */
+        [aria-hidden="true"] {
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
-    <div class="clock" id="clock"></div>
-    <div class="departures">
-        <h2>Departures:</h2>
-        <ul>
-            <li>Train 101 - 2026-02-12 06:30</li>
-            <li>Bus 302 - 2026-02-12 07:00</li>
-            <li>Flight 201 - 2026-02-12 08:15</li>
-        </ul>
-    </div>
+
+    <header>
+        <h1 class="stop-name" aria-label="Przystanek Osiedle Rzeczypospolitej">Os. Rzeczypospolitej</h1>
+    </header>
+
+    <main class="departures-list" role="list" aria-label="Aktualne odjazdy">
+        
+        <div class="departure-row glow" role="listitem" tabindex="0" 
+             aria-label="Linia 12, kierunek Starołęka, odjazd za 2 minuty">
+            <span class="line-number" aria-hidden="true">12</span>
+            <span class="destination" aria-hidden="true">Starołęka PKM</span>
+            <span class="time" aria-hidden="true">2 min</span>
+        </div>
+
+        <div class="departure-row glow" role="listitem" tabindex="0" 
+             aria-label="Linia 7, kierunek Ogrody, odjazd za 5 minut">
+            <span class="line-number" aria-hidden="true">7</span>
+            <span class="destination" aria-hidden="true">Ogrody</span>
+            <span class="time" aria-hidden="true">5 min</span>
+        </div>
+
+        <div class="departure-row glow" role="listitem" tabindex="0" 
+             aria-label="Linia 156, kierunek Szarych Szeregów, odjazd o godzinie 12:45">
+            <span class="line-number" aria-hidden="true">156</span>
+            <span class="destination" aria-hidden="true">Szarych Szeregów</span>
+            <span class="time" aria-hidden="true">12:45</span>
+        </div>
+
+    </main>
+
     <script>
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('clock').textContent = now.toUTCString();
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+        document.querySelectorAll('.departure-row').forEach(row => {
+            row.addEventListener('click', () => row.focus());
+        });
     </script>
+
 </body>
 </html>
